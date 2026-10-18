@@ -15,3 +15,19 @@ public class Member {
     private String tanggalDaftar;
     private String jenisPaket;
 }
+ /**
+     * Membuat data anggota baru.
+     *
+     * @param nama nama anggota
+     * @param noTelepon nomor telepon
+     * @param tanggalDaftar tanggal daftar
+     * @param jenisPaket paket gym
+     */
+    public Member(String nama, String noTelepon,
+                  String tanggalDaftar, String jenisPaket) {
+        this.nama = nama;
+        this.noTelepon = noTelepon;
+        this.tanggalDaftar = tanggalDaftar;
+        this.jenisPaket = jenisPaket;
+    }
+}
