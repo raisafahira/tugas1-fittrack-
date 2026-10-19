@@ -1,3 +1,4 @@
+
 /**
  * Data anggota gym FitTrack.
  */
@@ -14,8 +15,8 @@ public class Member {
     private String noTelepon;
     private String tanggalDaftar;
     private String jenisPaket;
-}
- /**
+
+    /**
      * Membuat data anggota baru.
      *
      * @param nama nama anggota
@@ -29,8 +30,8 @@ public class Member {
         this.noTelepon = noTelepon;
         this.tanggalDaftar = tanggalDaftar;
         this.jenisPaket = jenisPaket;
+    }
 
-        
     /**
      * Membuat anggota dengan paket Basic.
      *
@@ -40,7 +41,5 @@ public class Member {
      */
     public Member(String nama, String noTelepon, String tanggalDaftar) {
         this(nama, noTelepon, tanggalDaftar, PAKET_AWAL);
-    }
-
     }
 }
