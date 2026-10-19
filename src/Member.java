@@ -29,5 +29,18 @@ public class Member {
         this.noTelepon = noTelepon;
         this.tanggalDaftar = tanggalDaftar;
         this.jenisPaket = jenisPaket;
+
+        
+    /**
+     * Membuat anggota dengan paket Basic.
+     *
+     * @param nama nama anggota
+     * @param noTelepon nomor telepon
+     * @param tanggalDaftar tanggal pendaftaran
+     */
+    public Member(String nama, String noTelepon, String tanggalDaftar) {
+        this(nama, noTelepon, tanggalDaftar, PAKET_AWAL);
+    }
+
     }
 }
