@@ -42,4 +42,40 @@ public class Member {
     public Member(String nama, String noTelepon, String tanggalDaftar) {
         this(nama, noTelepon, tanggalDaftar, PAKET_AWAL);
     }
+
+    /**
+     * Mengambil nama anggota.
+     *
+     * @return nama anggota
+     */
+    public String getNama() {
+        return nama;
+    }
+
+    /**
+     * Mengambil nomor telepon anggota.
+     *
+     * @return nomor telepon
+     */
+    public String getNoTelepon() {
+        return noTelepon;
+    }
+
+    /**
+     * Mengambil tanggal pendaftaran.
+     *
+     * @return tanggal pendaftaran
+     */
+    public String getTanggalDaftar() {
+        return tanggalDaftar;
+    }
+
+    /**
+     * Mengambil jenis paket anggota.
+     *
+     * @return jenis paket
+     */
+    public String getJenisPaket() {
+        return jenisPaket;
+    }
 }
