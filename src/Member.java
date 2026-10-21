@@ -86,7 +86,14 @@ public class Member {
 
     // Mengubah nomor telepon
     public void setNoTelepon(String noTelepon) {
-        this.noTelepon = noTelepon;
+        if (noTelepon != null
+                && noTelepon.matches("\\d{" + BATAS_DIGIT_TELEPON + ",}")) {
+            this.noTelepon = noTelepon;
+        } else {
+            throw new IllegalArgumentException(
+                "Nomor telepon minimal " + BATAS_DIGIT_TELEPON + " digit angka."
+            );
+        }
     }
 
     // Mengubah tanggal pendaftaran
