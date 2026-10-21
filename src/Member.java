@@ -1,4 +1,3 @@
-
 /**
  * Data anggota gym FitTrack.
  */
@@ -81,7 +80,13 @@ public class Member {
     
     // Mengubah nama anggota
     public void setNama(String nama) {
-        this.nama = nama;
+       if (nama != null && !nama.trim().isEmpty()) {
+            this.nama = nama.trim();
+        } else {
+            throw new IllegalArgumentException(
+                "Nama tidak boleh kosong."
+            );
+        }
     }
 
     // Mengubah nomor telepon
