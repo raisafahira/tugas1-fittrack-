@@ -78,4 +78,25 @@ public class Member {
     public String getJenisPaket() {
         return jenisPaket;
     }
+    
+    // Mengubah nama anggota
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    // Mengubah nomor telepon
+    public void setNoTelepon(String noTelepon) {
+        this.noTelepon = noTelepon;
+    }
+
+    // Mengubah tanggal pendaftaran
+    public void setTanggalDaftar(String tanggalDaftar) {
+        this.tanggalDaftar = tanggalDaftar;
+    }
+
+    // Mengubah jenis paket
+    public void setJenisPaket(String jenisPaket) {
+        this.jenisPaket = jenisPaket;
+    }
+
 }
