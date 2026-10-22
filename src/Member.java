@@ -103,8 +103,14 @@ public class Member {
 
     // Mengubah tanggal pendaftaran
     public void setTanggalDaftar(String tanggalDaftar) {
-        this.tanggalDaftar = tanggalDaftar;
+        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
+        this.tanggalDaftar = tanggalDaftar.trim();
+    } else {
+        throw new IllegalArgumentException(
+            "Tanggal pendaftaran tidak boleh kosong."
+        );
     }
+}
 
     // Mengubah jenis paket
     public void setJenisPaket(String jenisPaket) {
