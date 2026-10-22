@@ -108,6 +108,14 @@ public class Member {
 
     // Mengubah jenis paket
     public void setJenisPaket(String jenisPaket) {
+        if (jenisPaket != null && !jenisPaket.trim().isEmpty()) {
+            this.jenisPaket = jenisPaket.trim();
+        } else {
+            throw new IllegalArgumentException(
+                "Jenis paket tidak boleh kosong."
+            );
+        }
+    }
         this.jenisPaket = jenisPaket;
     }
 
