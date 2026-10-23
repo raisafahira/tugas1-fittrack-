@@ -101,13 +101,18 @@ public class Member {
         }
     }
 
-    // Mengubah tanggal pendaftaran
-    public void setTanggalDaftar(String tanggalDaftar) {
-        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
-        this.tanggalDaftar = tanggalDaftar.trim();
-    } else {
+    // Mengubah tanggal pendaftaran dengan validasi format
+public void setTanggalDaftar(String tanggalDaftar) {
+    try {
+        DateTimeFormatter formatter = DateTimeFormatter
+                .ofPattern("dd-MM-uuuu")
+                .withResolverStyle(ResolverStyle.STRICT);
+
+        LocalDate.parse(tanggalDaftar, formatter);
+        this.tanggalDaftar = tanggalDaftar;
+    } catch (DateTimeParseException | NullPointerException e) {
         throw new IllegalArgumentException(
-            "Tanggal pendaftaran tidak boleh kosong."
+                "Format tanggal harus dd-MM-yyyy."
         );
     }
 }
