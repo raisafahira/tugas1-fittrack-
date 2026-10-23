@@ -133,5 +133,13 @@ public void setTanggalDaftar(String tanggalDaftar) {
     }
         this.jenisPaket = jenisPaket;
     }
-
+/**
+ * Menampilkan informasi anggota.
+ */
+public void tampilkanInfo() {
+    System.out.println("Nama: " + nama);
+    System.out.println("Nomor Telepon: " + noTelepon);
+    System.out.println("Tanggal Daftar: " + tanggalDaftar);
+    System.out.println("Jenis Paket: " + jenisPaket);
+}
 }
