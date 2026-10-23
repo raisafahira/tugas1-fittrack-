@@ -29,13 +29,12 @@ public class Member {
      * @param jenisPaket paket gym
      */
     public Member(String nama, String noTelepon,
-                  String tanggalDaftar, String jenisPaket) {
-        this.nama = nama;
-        this.noTelepon = noTelepon;
-        this.tanggalDaftar = tanggalDaftar;
-        this.jenisPaket = jenisPaket;
-    }
-
+              String tanggalDaftar, String jenisPaket) {
+    setNama(nama);
+    setNoTelepon(noTelepon);
+    setTanggalDaftar(tanggalDaftar);
+    setJenisPaket(jenisPaket);
+}
     /**
      * Membuat anggota dengan paket Basic.
      *
