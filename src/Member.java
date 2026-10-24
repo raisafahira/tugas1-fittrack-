@@ -149,6 +149,7 @@ public void tampilkanInfo() {
  * @return true jika paket sesuai
  */
 public boolean memilikiPaket(String paket) {
-    return jenisPaket.equalsIgnoreCase(paket);
+    return paket != null
+            && jenisPaket.equalsIgnoreCase(paket.trim());
 }
 }
