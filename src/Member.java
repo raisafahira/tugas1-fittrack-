@@ -142,4 +142,13 @@ public void tampilkanInfo() {
     System.out.println("Tanggal Daftar: " + tanggalDaftar);
     System.out.println("Jenis Paket: " + jenisPaket);
 }
+/**
+ * Memeriksa apakah anggota menggunakan paket tertentu.
+ *
+ * @param paket nama paket yang diperiksa
+ * @return true jika paket sesuai
+ */
+public boolean memilikiPaket(String paket) {
+    return jenisPaket.equalsIgnoreCase(paket);
+}
 }
