@@ -152,4 +152,15 @@ public boolean memilikiPaket(String paket) {
     return paket != null
             && jenisPaket.equalsIgnoreCase(paket.trim());
 }
+/**
+ * Menggabungkan informasi anggota menjadi satu teks.
+ *
+ * @return informasi anggota
+ */
+public String getInfoAnggota() {
+    return "Nama: " + nama
+            + ", Nomor Telepon: " + noTelepon
+            + ", Tanggal Daftar: " + tanggalDaftar
+            + ", Jenis Paket: " + jenisPaket;
+}
 }
