@@ -120,22 +120,28 @@ public void setTanggalDaftar(String tanggalDaftar) {
         );
     }
 }
-
-    // Mengubah jenis paket
-    public void setJenisPaket(String jenisPaket) {
-        if (jenisPaket != null && !jenisPaket.trim().isEmpty()) {
-            this.jenisPaket = jenisPaket.trim();
-        } else {
-            throw new IllegalArgumentException(
+    
+// Mengubah paket dengan validasi
+public void setJenisPaket(String jenisPaket) {
+    if (jenisPaket == null) {
+        throw new IllegalArgumentException(
                 "Jenis paket tidak boleh kosong."
-            );
-        }
+        );
     }
-        this.jenisPaket = jenisPaket;
+
+    String paket = jenisPaket.trim();
+
+    if (paket.equalsIgnoreCase("Basic")
+            || paket.equalsIgnoreCase("Standard")
+            || paket.equalsIgnoreCase("Premium")) {
+        this.jenisPaket = paket;
+    } else {
+        throw new IllegalArgumentException(
+                "Paket harus Basic, Standard, atau Premium."
+        );
     }
-/**
- * Menampilkan informasi anggota.
- */
+}
+    
 public void tampilkanInfo() {
     System.out.println("Nama: " + nama);
     System.out.println("Nomor Telepon: " + noTelepon);
