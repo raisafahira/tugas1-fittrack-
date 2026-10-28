@@ -7,10 +7,10 @@ public class Main {
         Member anggota = new Member(
                 "Raisa",
                 "081234567890",
-                "27-10-2026",
+                "28-10-2026",
                 "Basic"
         );
 
-        System.out.println(anggota.getInfoAnggota());
+        anggota.tampilkanInfo();
     }
 }
