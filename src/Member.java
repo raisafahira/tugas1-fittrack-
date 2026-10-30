@@ -1,8 +1,3 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
-
 /**
  * Data anggota gym FitTrack.
  */
@@ -94,27 +89,24 @@ public class Member {
     }
 
     // Mengubah nomor telepon
-    public void setNoTelepon(String noTelepon) {
-        if (noTelepon != null
-                && noTelepon.matches("\\d{" + BATAS_DIGIT_TELEPON + ",}")) {
-            this.noTelepon = noTelepon;
-        } else {
-            throw new IllegalArgumentException(
-                "Nomor telepon minimal " + BATAS_DIGIT_TELEPON + " digit angka."
-            );
-        }
+public void setNoTelepon(String noTelepon) {
+    if (noTelepon != null
+            && noTelepon.matches("0\\d{" + (BATAS_DIGIT_TELEPON - 1) + ",}")) {
+        this.noTelepon = noTelepon;
+    } else {
+        throw new IllegalArgumentException(
+            "Nomor telepon harus diawali 0 dan minimal "
+            + BATAS_DIGIT_TELEPON + " digit."
+        );
     }
+}
 
     // Mengubah tanggal pendaftaran dengan validasi format
 public void setTanggalDaftar(String tanggalDaftar) {
-    try {
-        DateTimeFormatter formatter = DateTimeFormatter
-                .ofPattern("dd-MM-uuuu")
-                .withResolverStyle(ResolverStyle.STRICT);
-
-        LocalDate.parse(tanggalDaftar, formatter);
+    if (tanggalDaftar != null
+            && tanggalDaftar.matches("\\d{2}-\\d{2}-\\d{4}")) {
         this.tanggalDaftar = tanggalDaftar;
-    } catch (DateTimeParseException | NullPointerException e) {
+    } else {
         throw new IllegalArgumentException(
                 "Format tanggal harus dd-MM-yyyy."
         );
@@ -123,7 +115,7 @@ public void setTanggalDaftar(String tanggalDaftar) {
     
 // Mengubah paket dengan validasi
 public void setJenisPaket(String jenisPaket) {
-    if (jenisPaket == null) {
+    if (jenisPaket == null || jenisPaket.trim().isEmpty()) {
         throw new IllegalArgumentException(
                 "Jenis paket tidak boleh kosong."
         );
@@ -132,12 +124,12 @@ public void setJenisPaket(String jenisPaket) {
     String paket = jenisPaket.trim();
 
     if (paket.equalsIgnoreCase("Basic")
-            || paket.equalsIgnoreCase("Standard")
-            || paket.equalsIgnoreCase("Premium")) {
+            || paket.equalsIgnoreCase("Premium")
+            || paket.equalsIgnoreCase("VIP")) {
         this.jenisPaket = paket;
     } else {
         throw new IllegalArgumentException(
-                "Paket harus Basic, Standard, atau Premium."
+                "Paket harus Basic, Premium, atau VIP."
         );
     }
 }
