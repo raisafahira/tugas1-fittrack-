@@ -78,47 +78,42 @@ public class Member {
     }
     
     // Mengubah nama anggota
-    public void setNama(String nama) {
-       if (nama != null && !nama.trim().isEmpty()) {
-            this.nama = nama.trim();
-        } else {
-            throw new IllegalArgumentException(
-                "Nama tidak boleh kosong."
-            );
-        }
+public void setNama(String nama) {
+    if (nama != null && !nama.trim().isEmpty()) {
+        this.nama = nama.trim();
+    } else {
+        System.out.println("Nama tidak boleh kosong.");
     }
-
+}
+    
     // Mengubah nomor telepon
 public void setNoTelepon(String noTelepon) {
     if (noTelepon != null
             && noTelepon.matches("0\\d{" + (BATAS_DIGIT_TELEPON - 1) + ",}")) {
         this.noTelepon = noTelepon;
     } else {
-        throw new IllegalArgumentException(
+        System.out.println(
             "Nomor telepon harus diawali 0 dan minimal "
             + BATAS_DIGIT_TELEPON + " digit."
         );
     }
 }
 
-    // Mengubah tanggal pendaftaran dengan validasi format
+   // Mengubah tanggal pendaftaran dengan validasi format
 public void setTanggalDaftar(String tanggalDaftar) {
     if (tanggalDaftar != null
             && tanggalDaftar.matches("\\d{2}-\\d{2}-\\d{4}")) {
         this.tanggalDaftar = tanggalDaftar;
     } else {
-        throw new IllegalArgumentException(
-                "Format tanggal harus dd-MM-yyyy."
-        );
+        System.out.println("Format tanggal harus dd-MM-yyyy.");
     }
 }
     
 // Mengubah paket dengan validasi
 public void setJenisPaket(String jenisPaket) {
     if (jenisPaket == null || jenisPaket.trim().isEmpty()) {
-        throw new IllegalArgumentException(
-                "Jenis paket tidak boleh kosong."
-        );
+        System.out.println("Jenis paket tidak boleh kosong.");
+        return;
     }
 
     String paket = jenisPaket.trim();
@@ -128,9 +123,7 @@ public void setJenisPaket(String jenisPaket) {
             || paket.equalsIgnoreCase("VIP")) {
         this.jenisPaket = paket;
     } else {
-        throw new IllegalArgumentException(
-                "Paket harus Basic, Premium, atau VIP."
-        );
+        System.out.println("Paket harus Basic, Premium, atau VIP.");
     }
 }
     
@@ -160,5 +153,14 @@ public String getInfoAnggota() {
             + ", Nomor Telepon: " + noTelepon
             + ", Tanggal Daftar: " + tanggalDaftar
             + ", Jenis Paket: " + jenisPaket;
+}
+/**
+ * Mengubah informasi anggota menjadi teks.
+ *
+ * @return informasi anggota
+ */
+@Override
+public String toString() {
+    return getInfoAnggota();
 }
 }
