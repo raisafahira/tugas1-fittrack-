@@ -50,5 +50,12 @@ member3.setNoTelepon("12345");
 // Menguji format tanggal tidak valid
 System.out.println(">> Mengubah format tanggal:");
 member4.setTanggalDaftar("18/10/2026");
+
+System.out.println("\n=== PENGUJIAN CETAK DATA ARRAY ===");
+
+// Menampilkan seluruh data anggota
+for (int i = 0; i < arrayMember.length; i++) {
+    System.out.println(arrayMember[i].toString());
 }
+    }
 }
