@@ -1,33 +1,37 @@
 # FitTrack - Sistem Keanggotaan Gym
 
+## Judul dan Identitas
 
 - **Nama Tugas:** Remedial UTS / Tugas 1 - Sistem Keanggotaan Gym FitTrack
 - **Nama:** Raisa Fahira
 - **NPM:** 250810701100093
 - **Kelas:** Praktikum PBO A
+- **Periode Pengerjaan:** 16 Oktober 2026 sampai 5 November 2026
 
 ## Deskripsi Singkat
 
-Sistem pendataan anggota berbasis Java console untuk gym FitTrack. Program ini digunakan untuk mencatat data anggota, seperti nama, nomor telepon, tanggal pendaftaran, dan jenis paket. Program juga menerapkan validasi input untuk mengurangi kesalahan data serta mempertahankan data sebelumnya apabila terjadi kesalahan saat pengubahan data.
+FitTrack merupakan program pendataan anggota gym berbasis Java console. Program ini digunakan untuk mencatat informasi anggota, seperti nama, nomor telepon, tanggal pendaftaran, dan jenis paket keanggotaan. Program menerapkan validasi input agar data yang disimpan sesuai dengan ketentuan dan mempertahankan data sebelumnya apabila terjadi kesalahan saat pengubahan data.
 
 ## Fitur Utama
 
-- **Pendaftaran Member Fleksibel:** Mendukung pembuatan anggota dengan paket khusus maupun menggunakan paket default `Basic`.
-- **Validasi Data Member:** Menolak nama kosong, nomor telepon yang tidak diawali angka 0 atau kurang dari 10 digit, serta tanggal dengan format yang tidak sesuai.
+- **Pendaftaran Anggota:** Membuat objek anggota dengan paket yang dipilih atau menggunakan paket default `Basic`.
+- **Validasi Nama:** Menolak nama yang kosong atau hanya berisi spasi.
+- **Validasi Nomor Telepon:** Memastikan nomor telepon diawali angka `0` dan memiliki minimal 10 digit.
+- **Validasi Tanggal:** Memastikan tanggal pendaftaran menggunakan format `dd-MM-yyyy`.
 - **Validasi Jenis Paket:** Hanya menerima paket `Basic`, `Premium`, dan `VIP`.
-- **Pencegahan Data Tidak Valid:** Jika terjadi kesalahan input pada setter, sistem menolak nilai baru dan mempertahankan data sebelumnya.
-- **Penyimpanan Data dalam Array:** Menyimpan beberapa objek anggota ke dalam satu array.
-- **Menampilkan Informasi Member:** Menampilkan seluruh informasi anggota menggunakan perulangan `for` dan method `toString()`.
+- **Menjaga Data Anggota:** Jika input setter tidak valid, nilai baru ditolak dan data sebelumnya tetap dipertahankan.
+- **Penyimpanan Data dalam Array:** Menyimpan beberapa objek anggota dalam satu array.
+- **Menampilkan Informasi Anggota:** Menampilkan informasi seluruh anggota menggunakan perulangan `for` dan method `toString()`.
 
 ## Konsep OOP yang Diterapkan
 
-| **Konsep OOP** | **Lokasi Penerapan** | **Alasan Penerapan** |
+| Konsep OOP | Lokasi Penerapan | Alasan Penerapan |
 |---|---|---|
-| **Encapsulation** | Class `Member` (atribut `private`, getter, dan setter) | Melindungi atribut agar tidak diubah secara langsung dari luar class. Perubahan data dilakukan melalui setter yang memiliki validasi. |
-| **Constructor Overloading** | Class `Member` (constructor 3 dan 4 parameter) | Memberikan pilihan pembuatan objek dengan paket khusus atau menggunakan paket default `Basic`. |
-| **Method Overriding** | Method `toString()` pada class `Member` | Mengubah perilaku bawaan `Object.toString()` agar menampilkan informasi anggota dalam format teks yang rapi. |
-| **Class & Object** | `Member.java` dan `TesFitTrack.java` | Memisahkan class sebagai cetak biru anggota dengan class yang digunakan untuk menguji objek. |
-| **DRY (Don't Repeat Yourself)** | Constructor memanggil setter | Memusatkan validasi data pada setter sehingga pemeriksaan tidak perlu ditulis ulang di dalam constructor. |
+| **Encapsulation** | Class `Member`, atribut `private`, getter, dan setter | Melindungi atribut agar tidak diubah secara langsung dari luar class. Perubahan data dilakukan melalui setter yang memiliki validasi. |
+| **Constructor Overloading** | Class `Member`, constructor 3 dan 4 parameter | Memberikan pilihan pembuatan objek dengan paket khusus atau menggunakan paket default `Basic`. |
+| **Method Overriding** | Method `toString()` pada class `Member` | Mengubah perilaku bawaan `Object.toString()` agar menampilkan informasi anggota dalam format teks yang sesuai. |
+| **Class & Object** | `Member.java` dan `TesFitTrack.java` | Class `Member` menjadi cetak biru data anggota, sedangkan `TesFitTrack` digunakan untuk membuat dan menguji objek. |
+| **DRY (Don't Repeat Yourself)** | Constructor memanggil setter | Memusatkan validasi pada setter sehingga pemeriksaan data tidak perlu ditulis ulang di dalam constructor. |
 | **Array** | Class `TesFitTrack` | Menyimpan beberapa objek anggota dalam satu array. |
 | **Iteration** | Perulangan `for` pada class `TesFitTrack` | Menampilkan seluruh informasi anggota yang tersimpan dalam array. |
 
@@ -42,23 +46,32 @@ tugas1-fittrack/
 └── README.md
 ```
 
-## Validasi Data Member
+## Prasyarat
 
-| **Atribut** | **Kriteria Validasi** | **Ketentuan** |
-|---|---|---|
-| **Nama Member** | Tidak boleh `null`, kosong, atau hanya berisi spasi. | Nama yang valid disimpan setelah spasi di awal dan akhir dihapus. |
-| **Nomor Telepon** | Wajib diawali angka `0` dan memiliki minimal 10 digit. | Hanya menerima angka sesuai ketentuan. |
-| **Tanggal Daftar** | Wajib berformat `dd-MM-yyyy`. | Memeriksa kesesuaian format tanggal. |
-| **Jenis Paket** | Hanya menerima `Basic`, `Premium`, atau `VIP`. | Paket default adalah `Basic` jika menggunakan constructor 3 parameter. |
+- **JDK:** JDK 21
+- **IDE yang digunakan:** Visual Studio Code
+- **IDE alternatif:** IntelliJ IDEA
+- **Terminal:** Command Line atau terminal bawaan IDE
 
-Jika data yang dimasukkan tidak valid melalui setter, program akan menampilkan pesan kesalahan dan mempertahankan data sebelumnya.
+Pastikan JDK sudah terpasang. Versi Java dapat diperiksa dengan perintah:
+
+```bash
+java -version
+javac -version
+```
+
+## Nilai Default
+
+Program menggunakan nilai default `Basic` untuk jenis paket apabila objek dibuat melalui constructor dengan tiga parameter.
+
+Jika data yang dimasukkan melalui setter tidak valid, program tidak mengganti data tersebut dengan nilai default. Program akan menampilkan pesan kesalahan dan mempertahankan nilai sebelumnya.
 
 ## Cara Menjalankan Program
 
 ### 1. Melalui Command Line (Terminal)
 
-1. Buka terminal pada folder utama project.
-2. Kompilasi program Java dengan perintah:
+1. Buka terminal pada folder utama project `tugas1-fittrack`.
+2. Kompilasi program dengan perintah:
 
    ```bash
    javac src/*.java
@@ -73,13 +86,23 @@ Jika data yang dimasukkan tidak valid melalui setter, program akan menampilkan p
 ### 2. Melalui Visual Studio Code
 
 1. Buka folder project `tugas1-fittrack` di Visual Studio Code.
-2. Pastikan Java Development Kit (JDK) sudah terpasang.
+2. Pastikan JDK sudah terpasang.
 3. Buka terminal melalui menu **Terminal → New Terminal**.
-4. Jalankan perintah kompilasi dan program seperti langkah di atas.
+4. Jalankan perintah kompilasi dan eksekusi seperti langkah command line di atas.
+
+### 3. Melalui IntelliJ IDEA
+
+1. Buka IntelliJ IDEA.
+2. Pilih **Open**, lalu pilih folder project `tugas1-fittrack`.
+3. Pastikan JDK sudah dikonfigurasi pada project.
+4. Buka file `TesFitTrack.java`.
+5. Jalankan program melalui tombol **Run** pada class tersebut.
 
 ## Contoh Output Program
 
-Berikut merupakan hasil pengujian program FitTrack yang dijalankan melalui terminal.
+Program diuji dengan membuat beberapa objek anggota, melakukan pengujian validasi setter, dan menampilkan data anggota melalui array.
+
+Contoh output pengujian:
 
 ```text
 === PENGUJIAN 1: INSTANSIASI OBJEK ===
@@ -101,7 +124,13 @@ Nama: Rizky Pratama, Nomor Telepon: 083176543210, Tanggal Daftar: 20-10-2026, Je
 Nama: Salsabila Azzahra, Nomor Telepon: 084165432109, Tanggal Daftar: 21-10-2026, Jenis Paket: VIP
 ```
 
+## Batasan dan Pengembangan Lanjutan
+
+- Program masih berbasis console dan belum memiliki antarmuka grafis.
+- Data anggota disimpan dalam array dan belum disimpan secara permanen ke database atau file.
+- Validasi tanggal saat ini memeriksa format `dd-MM-yyyy`, tetapi belum memastikan bahwa tanggal tersebut benar-benar valid dalam kalender.
+- Pengembangan selanjutnya dapat mencakup penyimpanan data permanen, fitur pencarian anggota, serta antarmuka grafis yang lebih mudah digunakan.
+
 ## Kesimpulan
 
-Program FitTrack telah menerapkan konsep dasar Pemrograman Berorientasi Objek, seperti class, object, encapsulation, constructor overloading, dan method overriding. Program juga dapat melakukan validasi data anggota serta menampilkan informasi anggota melalui array dan perulangan.
-
+Program FitTrack menerapkan konsep dasar Pemrograman Berorientasi Objek, seperti class, object, encapsulation, constructor overloading, dan method overriding. Program dapat membuat dan memvalidasi data anggota serta menampilkan informasi anggota melalui array dan perulangan.
